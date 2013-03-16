@@ -47,7 +47,7 @@ html(lang='en', ng-app='42.splash-page')
       img.logo(src="/assets/images/logo.png", alt="42 logo")
 
       h1.tagline
-        | Revolutionize your shopping experience
+        | The Ultimate Trendsetter
 
       form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
         input#signup-email(
@@ -67,21 +67,21 @@ html(lang='en', ng-app='42.splash-page')
 
       section.closet-inner
         section.info
-          h1 This is the closet!
+          h1 Fashion &amp; Tech
           p
-            | Carrot cake macaroon soufflé sugar plum cotton
-            | candy muffin bonbon bonbon ice cream. Gingerbread
-            | carrot cake chupa chups toffee cotton candy croissant
-            | gummi bears. Marzipan faworki lollipop. Fruitcake
-            | sweet roll jelly-o gummi bears bear claw.
+            | 42 brings together the two of the world's most influential
+            | industries: fashion and technology.
+            br
+            br
+            | With 42, your in-store purchases are automatically catalogued
+            | into your virtual closet. You can search and categorize your
+            | clothes by color, style, or even by the weather!
 
         mixin image-link("/assets/images/screenshot-closet.png")
 
-
     section.description: p
-      | Carrot cake macaroon soufflé sugar plum cotton
-      | candy muffin bonbon bonbon ice cream. Gingerbread
-      | carrot cake chupa chups toffee cotton candy.
+      | Wouldn't it be great if your favorite store could notify you when they
+      | have a sale on an item you'd <em>actually</em> want?
 
 
     section.card
@@ -90,24 +90,19 @@ html(lang='en', ng-app='42.splash-page')
         mixin image-link("/assets/images/screenshot-card.png")
 
         section.info
-          h1 omg check out this card
+          h1 Be the Ultimate Trendsetter.<br>Work on what's next.
           p
-            | Carrot cake macaroon soufflé sugar plum cotton
-            | candy muffin bonbon bonbon ice cream. Gingerbread
-            | carrot cake chupa chups toffee cotton candy croissant
-            | gummi bears. Marzipan faworki lollipop. Fruitcake
-            | sweet roll jelly-o gummi bears bear claw.
-
-    //- section.team
-    //-   h1 Team section yay
+            | Interested in an internship? We're looking for the
+            | brightest people with a passion for fashion and/or
+            | technology.
+            br
+            a(href="mailto:team@42debut.com")
+              |  Tell us why you'd be a great fit!
 
     footer
       section.links
-        a(href="/contact")
+        a(href="mailto:team@42debut.com")
           | contact us
 
-        a(href="/retailers")
+        a(href="mailto:team@42debut.com")
           | are you a retailer?
-
-
-

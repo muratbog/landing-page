@@ -64,7 +64,6 @@ module.exports = (grunt) ->
                     pretty: true
                     compileDebug: true
 
-
         # Copy some assets...
         copy:
             #css_libs:

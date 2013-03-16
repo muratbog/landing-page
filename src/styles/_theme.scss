@@ -49,6 +49,7 @@ body > section {
     form {
         background: $background-white;
         @include border-radius(3px);
+        border: 1px solid darken($background-red, 2%);
 
         button {
             @include border-radius(3px);
@@ -92,6 +93,10 @@ body > section {
 
 .card {
     background: $background-white;
+    a {
+        color: $background-red;
+        font-weight: 400;
+    }
 }
 
 

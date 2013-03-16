@@ -1,5 +1,5 @@
 
-SIGNUP_SERVICE_URI = 'http://signups.services.42debut.com'
+SIGNUP_SERVICE_URI = 'http://signup.services.42debut.com'
 
 
 app.controller 'SignupController', ($scope, $http) ->
