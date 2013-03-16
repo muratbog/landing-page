@@ -19,6 +19,9 @@ body {
     line-height: 1.7;
 }
 
+*:focus {
+    outline-color: $background-red;
+}
 
 a {
     text-decoration: none;
@@ -43,7 +46,7 @@ body > section {
 
 
 .signup {
-    background: $background-red;
+    background: $background-red url(/assets/images/bg-red.jpg);
     color: $background-white;
 
     form {
@@ -72,6 +75,42 @@ body > section {
 
         input {
             font-size: 15px;
+
+            &::-webkit-input-placeholder {
+               color: lighten($background-black, 30%);
+            }
+
+            &:-moz-placeholder {
+               color: lighten($background-black, 30%);
+            }
+
+            &::-moz-placeholder {
+               color: lighten($background-black, 30%);
+            }
+
+            &:-ms-input-placeholder {
+               color: lighten($background-black, 30%);
+            }
+
+            &:focus {
+                outline: none;
+
+                &::-webkit-input-placeholder {
+                   color: lighten($background-black, 70%);
+                }
+
+                &:-moz-placeholder {
+                   color: lighten($background-black, 70%);
+                }
+
+                &::-moz-placeholder {
+                   color: lighten($background-black, 70%);
+                }
+
+                &:-ms-input-placeholder {
+                   color: lighten($background-black, 70%);
+                }
+            }
         }
     }
 }
