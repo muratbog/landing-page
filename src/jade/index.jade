@@ -27,17 +27,8 @@ html(lang='en', ng-app='42.splash-page')
 
     block app
       mixin app-core("app")
-
-      //- mixin app-service("experiences")
-      //- mixin app-service("technologies")
-
       mixin app-controller("main")
       mixin app-controller("signup")
-
-      //- mixin app-controller("experiences")
-      //- mixin app-controller("technologies")
-
-      //- mixin app-directive("task")
 
 
   body(ng-controller="MainController")
@@ -64,33 +55,34 @@ html(lang='en', ng-app='42.splash-page')
 
 
     section.closet
-
-      section.closet-inner
+      .closet-inner
         section.info
           h1 Fashion &amp; Tech
           p
-            | 42 brings together the two of the world's most influential
-            | industries: fashion and technology.
+            | 42 is a modern retail platform that brings together the two of the world's
+            | most influential industries: fashion and technology.
             br
             br
-            | With 42, your in-store purchases are automatically catalogued
-            | into your virtual closet. You can search and categorize your
-            | clothes by color, style, or even by the weather!
+            | Let's revolutionizing the shopping experience. Imaging having the power of
+            | "Recommended for You" and Pinterest when shopping in stores. What if there
+            | was a way for us to have a digital closet of things we've bought in stores?
+            | For brands to notify us only for pieces we actually like?
 
         mixin image-link("/assets/images/screenshot-closet.png")
 
     section.description: p
-      | Wouldn't it be great if your favorite store could notify you when they
-      | have a sale on an item you'd <em>actually</em> want?
+      | How would you like to be on a first name basis with Louis?
+      | 42 uses the power of technology to help brands understand you.
 
 
     section.card
-
-      section.card-inner
-        mixin image-link("/assets/images/screenshot-card.png")
-
+      .card-inner
         section.info
-          h1 Be the Ultimate Trendsetter.<br>Work on what's next.
+          h1
+            | Be the Ultimate Trendsetter.
+            br
+            | Work on what's next.
+
           p
             | Interested in an internship? We're looking for the
             | brightest people with a passion for fashion and/or
@@ -98,6 +90,8 @@ html(lang='en', ng-app='42.splash-page')
             br
             a(href="mailto:team@42debut.com")
               |  Tell us why you'd be a great fit!
+
+        mixin image-link("/assets/images/screenshot-receipt.png")
 
     footer
       section.links

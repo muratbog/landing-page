@@ -1,6 +1,6 @@
 .card {
     overflow: hidden;
-    padding-bottom: 70px;
+    min-height: 500px;
 
     .card-inner {
         position: relative;
@@ -8,48 +8,68 @@
     }
 
     .info {
-        width: 400px;
-        float: right;
+        width: 350px;
+        position: absolute;
+        right: 0;
+        top: 0;
         margin-top: 40px;
 
         p {
             margin: 40px 0;
         }
-
-        @media only screen and (max-width: 640px) {
-            // width: 200px;
-        }
     }
 
     img {
         width: 100%;
-        max-width: 500px;
+        max-width: 240px;
     }
 }
 
 
 
-@media only screen and (max-width: 530px) {
+@media only screen and (max-width: 680px) {
 .card {
 
+    // img, .info {
+    //     display: block;
+    // }
+
+    max-height: 600px;
+
     img, .info {
+        position: static;
+        float: none;
         display: block;
-    }
-
-    $img-ratio: 242 / 500; // image height is 242px when width is 500px
-    $img-width: 450px;
-
-    img {
-        width: $img-width;
         margin: 0 auto;
-        position: absolute;
-        left: 50%;
-        margin-left: -($img-width / 2) - 2px; // adding a little offset
+    }
+    .info {
+        @media only screen and (max-width: 430px) {
+            width: 100%;
+        }
+    }
+    img {
+        position: static;
     }
 
-    .info {
-        margin-top: ($img-width * $img-ratio) + 25px;
-        width: 100%;
-    }
+    // $img-ratio: 242 / 500; // image height is 242px when width is 500px
+    // $img-width: 450px;
+
+    // img {
+    //     width: $img-width;
+    //     margin: 0 auto;
+    //     top: 0;
+    //     position: absolute;
+    //     left: 50%;
+    //     margin-left: -($img-width / 2) - 2px; // adding a little offset
+    // }
+
+    // .info {
+    //     position: static;
+    //     max-width: 400px;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    //     // margin-top: ($img-width * $img-ratio) + 25px;
+    //     width: 100%;
+    // }
 }
 }
