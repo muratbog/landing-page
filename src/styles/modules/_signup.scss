@@ -1,0 +1,45 @@
+.signup {
+    text-align: center;
+
+    .logo {
+        width: 125px;
+    }
+
+    .tagline {
+        margin: 40px auto;
+    }
+
+    $height: 50px;
+
+    form {
+        margin: 0 auto;
+        position: relative;
+        height: $height;
+        max-width: 400px;
+
+        $button-width: 75px;
+        $padding: 2px;
+
+        input {
+            position: absolute;
+            top: $padding;
+            left: $padding;
+            bottom: $padding;
+            right: $button-width + $padding * 2;
+            padding: 8px;
+            border: none;
+        }
+
+        button {
+            position: absolute;
+            top: $padding;
+            right: $padding + 2; // adding an offset because it looks better
+            bottom: $padding;
+            width: 75px;
+        }
+    }
+
+    .thanks {
+        height: $height;
+    }
+}

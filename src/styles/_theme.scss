@@ -1,0 +1,135 @@
+
+@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:400,500,600,700);
+
+$font-color-normal:    hsl(  0,   0%, 98%);
+$font-color-highlight: hsl(240, 100%, 80%);
+
+$background-white: hsl(0,  0%, 100%);
+$background-red:   hsl(0, 60%, 50%);
+$background-black: hsl(0,  0%, 10%);
+
+
+body {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+
+    background: $background-white;
+    color: $background-black;
+    line-height: 1.7;
+}
+
+
+a {
+    text-decoration: none;
+    // border-bottom: 1px dotted rgba(gray, 0.5);
+
+    // &:hover {
+    //     border-bottom-color: rgba(gray, 1);
+    // }
+}
+
+
+h1 {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+
+body > section {
+    @include box-shadow(inset 0px 5px 5px rgba(black, 0.05));
+    // border: 1px solid rgba(gray, 0.5);
+}
+
+
+.signup {
+    background: $background-red;
+    color: $background-white;
+
+    form {
+        background: $background-white;
+        @include border-radius(3px);
+
+        button {
+            @include border-radius(3px);
+            text-transform: uppercase;
+            background: $background-black;
+            color: $background-white;
+            border: none;
+            font-weight: 600;
+            font-size: 15px;
+
+            &:hover {
+                background: lighten($background-black, 10%);
+                cursor: pointer;
+            }
+
+            &:active {
+                @include transform(scale(0.96));
+            }
+        }
+
+        input {
+            font-size: 15px;
+        }
+    }
+}
+
+
+.closet {
+    background: $background-white;
+    color: $background-black;
+}
+
+
+.description {
+    background: url(/assets/images/bgtile-dark.png) $background-black;
+    color: $background-white;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+
+.card {
+    background: $background-white;
+}
+
+
+.team {
+    background: $background-red;
+    color: $background-white;
+}
+
+
+footer {
+    background: $background-black;
+    color: $background-white;
+
+    a {
+        font-size: 20px;
+        color: $background-white;
+
+        &:hover {
+            border-bottom: 1px dotted darken($background-white, 50%);
+        }
+
+        @media only screen and (max-width: 530px) {
+            @include box-shadow(inset 0px 2px 2px rgba(gray, 0.05));
+            border-bottom: 1px solid rgba(black, 0.1);
+
+            &:last-child {
+                // padding-bottom: 15px;
+                border: none;
+            }
+
+            &:hover {
+                background: lighten($background-black, 3%);
+                border-bottom: 1px solid rgba(black, 0.4);
+            }
+
+            &:active {
+                background: black;
+            }
+        }
+    }
+}

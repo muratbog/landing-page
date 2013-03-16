@@ -1,0 +1,19 @@
+
+html, body {
+    width: 100%;
+    min-width: 300px;
+}
+
+body {
+
+    & > section {
+        padding: 70px 40px;
+        position: relative;
+    }
+
+    & > section > *,
+    & > footer  > * {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}

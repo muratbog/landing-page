@@ -1,0 +1,20 @@
+@media print {
+    * {
+        background: transparent !important;
+        color: black !important;
+        text-shadow: none !important;
+        @include filter(none !important);
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    .duration {
+        color: #444 !important;
+    }
+
+    li:before {
+        color: #444 !important;
+    }
+}

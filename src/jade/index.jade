@@ -1,0 +1,113 @@
+
+include mixins/asset-mixins
+include mixins/asset-mixins-angular
+
+
+mixin image-link(src)
+  a(href=src): img.screenshot(src=src)
+
+
+!!!
+html(lang='en', ng-app='42.splash-page')
+
+  head
+    title 42
+
+    block meta
+      include includes/mobile-meta-tags
+      meta(charset="utf-8")
+
+    block css
+      mixin css("default")
+
+    block js-libs
+      mixin js-lib("angular")
+      mixin js-lib("lodash")
+      mixin js-lib("zepto")
+
+    block app
+      mixin app-core("app")
+
+      //- mixin app-service("experiences")
+      //- mixin app-service("technologies")
+
+      mixin app-controller("main")
+      mixin app-controller("signup")
+
+      //- mixin app-controller("experiences")
+      //- mixin app-controller("technologies")
+
+      //- mixin app-directive("task")
+
+
+  body(ng-controller="MainController")
+
+    section.signup(ng-controller="SignupController")
+
+      img.logo(src="/assets/images/logo.png", alt="42 logo")
+
+      h1.tagline
+        | Revolutionize your shopping experience
+
+      form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
+        input#signup-email(
+          ng-model="email",
+          required,
+          name="email",
+          type="email",
+          placeholder="Be the first to know!"
+        )
+        button#signup-button(type="submit") send
+
+      .thanks(ng-show="signupDone")
+        h1 Thanks a bunch! We'll keep you posted :)
+
+
+    section.closet
+
+      section.closet-inner
+        section.info
+          h1 This is the closet!
+          p
+            | Carrot cake macaroon soufflé sugar plum cotton
+            | candy muffin bonbon bonbon ice cream. Gingerbread
+            | carrot cake chupa chups toffee cotton candy croissant
+            | gummi bears. Marzipan faworki lollipop. Fruitcake
+            | sweet roll jelly-o gummi bears bear claw.
+
+        mixin image-link("/assets/images/screenshot-closet.png")
+
+
+    section.description: p
+      | Carrot cake macaroon soufflé sugar plum cotton
+      | candy muffin bonbon bonbon ice cream. Gingerbread
+      | carrot cake chupa chups toffee cotton candy.
+
+
+    section.card
+
+      section.card-inner
+        mixin image-link("/assets/images/screenshot-card.png")
+
+        section.info
+          h1 omg check out this card
+          p
+            | Carrot cake macaroon soufflé sugar plum cotton
+            | candy muffin bonbon bonbon ice cream. Gingerbread
+            | carrot cake chupa chups toffee cotton candy croissant
+            | gummi bears. Marzipan faworki lollipop. Fruitcake
+            | sweet roll jelly-o gummi bears bear claw.
+
+    //- section.team
+    //-   h1 Team section yay
+
+    footer
+      section.links
+        a(href="/contact")
+          | contact us
+
+        a(href="/retailers")
+          | are you a retailer?
+
+
+

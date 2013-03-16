@@ -1,0 +1,51 @@
+
+.closet {
+    min-height: 400px;
+    padding-top: 100px;
+
+    .closet-inner {
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .info {
+        float: left;
+        width: 300px;
+
+        p {
+            margin: 40px 0;
+        }
+
+        @media only screen and (max-width: 640px) {
+            width: 200px;
+        }
+    }
+
+    img {
+        position: absolute;
+        top: -70px;
+        right: 0;
+        width: 250px;
+    }
+}
+
+
+
+@media only screen and (max-width: 530px) {
+.closet {
+    padding-top: 60px;
+    margin-bottom: -300px; // this crops/overflows the image
+
+    img, .info {
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+    .info {
+        width: 100%;
+    }
+    img {
+        position: static;
+    }
+}
+}
