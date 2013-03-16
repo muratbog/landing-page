@@ -20,16 +20,6 @@ html(lang='en', ng-app='42.splash-page')
     block css
       mixin css("default")
 
-    block js-libs
-      mixin js-lib("angular")
-      mixin js-lib("lodash")
-      mixin js-lib("zepto")
-
-    block app
-      mixin app-core("app")
-      mixin app-controller("main")
-      mixin app-controller("signup")
-
 
   body(ng-controller="MainController")
 
@@ -70,7 +60,8 @@ html(lang='en', ng-app='42.splash-page')
             | was a way for us to have a digital closet of things we've bought in stores?
             | For brands to notify us only for pieces we actually like?
 
-        mixin image-link("/assets/images/screenshot-closet.png")
+        //- mixin image-link("/assets/images/screenshot-closet.png")
+        img.shoes(src="/assets/images/shoes.png")
 
     section.description: p
       | How would you like to be on a first name basis with Louis?
@@ -102,3 +93,14 @@ html(lang='en', ng-app='42.splash-page')
 
         a(href="mailto:team@42debut.com")
           | are you a retailer?
+
+
+    block js-libs
+      mixin js-lib("angular")
+      mixin js-lib("lodash")
+      mixin js-lib("zepto")
+
+    block app
+      mixin app-core("app")
+      mixin app-controller("main")
+      mixin app-controller("signup")

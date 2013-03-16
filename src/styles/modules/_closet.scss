@@ -1,6 +1,6 @@
 
 .closet {
-    min-height: 400px;
+    min-height: 370px;
     padding-top: 60px;
 
     .closet-inner {
@@ -10,7 +10,9 @@
 
     .info {
         float: left;
-        width: 300px;
+        width: 400px;
+
+
 
         p {
             margin: 20px 0;
@@ -19,18 +21,27 @@
 
     img {
         position: absolute;
-        top: -30px;
+        top: 20px;
         right: 0;
         width: 250px;
     }
 }
 
 
+@media only screen and (max-width: 725px) {
+.closet {
+    min-height: 400px;
+    .info {
+        width: 300px;
+    }
+}
+}
+
 
 @media only screen and (max-width: 640px) {
 .closet {
     padding-top: 60px;
-    margin-bottom: -230px; // this crops/overflows the image
+    padding-bottom: 40px;
 
     img, .info {
         float: none;
@@ -42,6 +53,7 @@
     }
     img {
         position: static;
+        margin-top: 40px;
     }
 }
 }
