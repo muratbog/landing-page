@@ -7,7 +7,6 @@
 5. Run the thing: `grunt run`
 6. Bask in the awesome on `localhost:8000`
 
-
-# License
+-------
 
 Copyright (c) 42 technologies
