@@ -17,6 +17,7 @@ tmp/
 *.lock
 profile
 
+config.rb
 
 # Xcode
 *~.nib
