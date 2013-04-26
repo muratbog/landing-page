@@ -23,84 +23,123 @@ html(lang='en', ng-app='42.splash-page')
 
   body(ng-controller="MainController")
 
+    header
+      .header-content
+        img.logo-black(src="/assets/images/logo-black.png", alt="42 logo")
+        form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
+          input#signup-email(
+            ng-model="email",
+            required,
+            name="email",
+            type="email",
+            placeholder="Be the first to know!"
+          )
+          button#signup-button(type="submit") Sign Up
+
+        .thanks(ng-show="signupDone")
+          h1 Thanks a bunch! We'll keep you posted :)
+
     section.signup(ng-controller="SignupController")
 
       img.logo(src="/assets/images/logo.png", alt="42 logo")
 
       h1.tagline
-        | The Ultimate Trendsetter
+        | Retail experience, reinvented.
 
-      form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
-        input#signup-email(
-          ng-model="email",
-          required,
-          name="email",
-          type="email",
-          placeholder="Be the first to know!"
-        )
-        button#signup-button(type="submit") send
-
-      .thanks(ng-show="signupDone")
-        h1 Thanks a bunch! We'll keep you posted :)
+      
 
       //- img.brands(src="/assets/images/brands-black.png")
 
+    section.intro
+      article
+        .lefttext
+          p 
+            | What is 42?
 
-    section.closet
-      .closet-inner
-        section.info
-          h1 Fashion &amp; Tech
+            | We only focus on one thing: to give you a personalized retail experience.
+
+            | Today if you walked into store 10 times, few stores would have an idea of what you like as a customer. I only buy dress shirts, why am I getting emails about spring floral dresses?
+
+    section.intro
+      article
+        .lefttext
           p
-            | 42 is a modern retail platform that brings together the two of the world's
-            | most influential industries: fashion and technology.
-            br
-            br
-            | Let's revolutionize the shopping experience. Imagine having the power of
-            | "Recommended for You" and Pinterest when shopping in stores. What if there
-            | was a way for us to have a digital closet of things we've bought in stores?
-            | For brands to notify us only for pieces we actually like?
+            | Every customer cares about different things. Maybe you're someone who values being the first to know of new items, being notified of sales, or only getting suggestions for shirts that go well with your closet full of jeans. 
 
-        //- mixin image-link("/assets/images/screenshot-closet.png")
-        img.shoes(src="/assets/images/shoes.png")
+    section.tag
+      h2 
+        | It's our job to make the mass world of brick & mortar more tailored to you. 
 
-    section.description: p
-      | How would you like to be on a first name basis with Louis?
-      | 42 uses the power of technology to help brands understand you.
+    section.consumer
+      article
+        h1 Brave New (Retail) World
+
+        img.dashboard(src="/assets/images/dashboard.png")
+
+        p.left
+          | Retail stores should function like eCommerce sites.
+          br
+          br
+          | Take everything you love about online retail and bring that offline. Now you have the best of both worlds: personal recommendations, and the touch and feel of the in-store experience.
+
+          | It's what your retail experience should be like. 
 
 
-    section.card
-      .card-inner
-        section.info
-          h1
-            | Be the Ultimate Trendsetter.
-            br
-            | Work on what's next.
+        p.right
+          | Recommendations, just for you.
+          br
+          br
+          | We use a simple digital ID to identify your purchases. At checkout, the cashier will scan your ID barcode like any other item, and we'll send personalized recommendations that goes well with your purchases.
 
-          p
-            | Interested in an internship? We're looking for the
-            | brightest people with a passion for fashion and/or
-            | technology.
-            br
-            a(href="mailto:team@42debut.com")
-              |  Tell us why you'd be a great fit!
 
-        mixin image-link("/assets/images/screenshot-receipt.png")
+    section.retailer
+      article.centered
+        h1 Are you a retailer? 
+        p
+          | 42's New enterprise platform is quick to set-up, and turns your most complex data into a simple, visual dashboard. 
+
+          | We work with some of the most innovative brands in retail. <a>Send us a note</a>, and we'll help you better understand your customers. 
+
+      img(src="/assets/images/mba.png")
+          
+      
+
+    section.referral
+      article
+        h1 Know a retailer?
+
+        p.centered If you know a brand that would benefit from 42, help us <a>spread the word</a>!<br>We've included a brief bio for you.
+
+    section.featured
+      article
+        h1 As Seen in
+
+        .featured-logos
+          img(src="/assets/images/techcrunch.png")
+          img(src="/assets/images/fashionweek.png")
+
+    section.testimonials
+
+    section.team
+       mixin image-link("/assets/images/")
 
     footer
       section.links
         a(href="mailto:team@42debut.com")
-          | contact us
+          | Contact Us
 
         a(href="mailto:team@42debut.com")
-          | are you a retailer?
+          | Are you a retailer?
 
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
     block js-libs
+      mixin js-lib("scripts")
       mixin js-lib("angular")
       mixin js-lib("lodash")
       mixin js-lib("zepto")
 
     block app
-      mixin app-core("app")
-      mixin app-controller("main")
-      mixin app-controller("signup")
+        mixin app-core("app")
+        mixin app-controller("main")
+        mixin app-controller("signup")
