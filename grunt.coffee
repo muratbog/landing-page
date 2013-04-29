@@ -99,7 +99,7 @@ module.exports = (grunt) ->
 
                 # Allows CORS to all domains (don't use this in production!)
                 (request, response, next) ->
-                    response.setHeader 'Access-Control-Allow-Origin',  '*'
+                    response.setHeader 'Access-Control-Allow-Origin',  '*.services.42debut.com'
                     response.setHeader 'Access-Control-Allow-Headers', 'Accept,Accept-Version,Content-Length,Content-MD5,Content-Type,Date,X-Api-Version,Origin,X-Requested-With'
                     response.setHeader 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'
                     next()
