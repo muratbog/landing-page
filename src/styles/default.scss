@@ -1,15 +1,8 @@
-
 @import "compass/reset";
 @import "compass/css3";
 @import "compass/css3/user-interface";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
 
-
-$width: 960px; 
-$dark-bg: #111b1d;
-$white: #fff;
-$grey: #ededed;
-$yellow: #ffd660;
 // @import "fonts";
 // @import "base";
 // @import "layout";
@@ -17,296 +10,373 @@ $yellow: #ffd660;
 // @import "modules";
 // @import "print";
 
-html, body {
-    width: 100%;
-    min-width: 300px;
-    font-size: 10px;
+html {
+  width: 100%;
+  min-width: 300px;
+
+  font-size: 10px;
 }
 
-body {
-    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-
-    & > section {
-    }
-
-    & > section > *,
-    & > footer  > * {
-        max-width: $width;
-        margin: 0 auto;
-    }
-
-    header {
-        position: absolute;
-        width: 100%;
-        height: 120px;
-        background: $grey;
-        z-index: 999;
-        top: 600px;
-        border-top: 1px solid $white;
-
-        .header-content {
-            margin: 0 auto;
-            width: $width;
-        }
-
-        .logo-black {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            margin: 34px 0 0 0;
-            display: none;
-            top: 0;
-            bottom: 0;
-        }
-    }
-
-    article {
-        position: relative;
-        width: $width;
-        margin: 0 auto;
-        height: 100%;
-        padding: 50px 0;
-    }
-
-    .left {
-        position: absolute;
-        left: 5%;
-        width: 360px;
-        }
-
-    .right {
-        position: absolute;
-        right: 5%;
-        width: 360px;
-    }
-
-    .centered {
-        width: 600px;
-        margin: 0 auto;
-        text-align: center;
-    }
 
 /* Typography
 ------------------------------------------------------------ */
-    h1 {
-        font-size: 2.4rem;
-        text-align: center;
-        margin: 50px auto;
+body {
+  color: #222;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+
+
+/* General layout
+------------------------------------------------------------ */
+  a, a:hover {
+    padding: 0 0 1px;
+    border-bottom: 1px dotted #aaa;
+
+    color: #f7b802;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  article {
+    margin: 0 auto;
+    padding: 50px 25px 100px;
+    width: 900px;
+  }
+
+  h2 {
+    margin: 50px 0;
+
+    color: #aaa;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.3rem;
+    letter-spacing: 0.1rem;
+    line-height: 2.5rem;
+  }
+
+  .centered {
+    margin: 0 auto;
+    width: 600px;
+
+    text-align: center;
+  }
+
+  blockquote {
+    padding: 0 25px 25px;
+    width: 425px;
+    display: inline-block;
+    vertical-align: top;
+
+    span {
+      color: #999;
+    }
+  }
+
+
+/* Splash
+------------------------------------------------------------ */
+  .splash {
+    height: 525px;
+    background: #111b1d;
+
+    .logo {
+      position: absolute;
+      margin: 150px -45px 0;
+      left: 50%;
+      width: 90px;
     }
 
-    p {
-        font-size: 1.3rem;
-        letter-spacing: 0.1rem;
-        line-height: 2.6rem;
-    }
+    h2 {
+      position: absolute;
+      margin: 325px 0 0;
+      width: 100%;
 
-    a {
-        font-size: 1.3rem;
-        letter-spacing: 1px;
-        text-decoration: none;
-        color: $dark-bg;
+      color: #fff;
+      font-size: 1.7rem;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      text-align: center;
+      text-transform: none;
     }
+  }
 
-    a:hover {
-        color: $grey;
-        cursor: pointer;
-    }
 
 /* Sign Up
 ------------------------------------------------------------ */
-    .signup {
-        position: relative;
-        background: #111b1d;
-        letter-spacing: 1px;
-        height: 600px;
+  .signup {
+    position: absolute;
+    z-index: 1;
+    top: 525px;
+    width: 100%;
+    background: #eee;
 
-        .logo {
-            position: absolute;
-            left: 50%;
-            margin: 200px 0 0 -45px;
-            width: 90px;
-            height: 90px;
-        }
-
-        .tagline {
-            position: absolute;
-            left: 50%;
-            width: $width;
-            text-align: center;
-            color: #fff;
-            margin: 400px 0 0 -480px;
-            font-size: 1.4rem;
-        }
+    img {
+      position: absolute;
+      left: 50%;
+      margin: 34px -450px;
+      width: 50px;
     }
 
     form {
-        overflow: hidden;
-        width: 500px;
-        margin: 0 auto;
+      margin: 0 auto;
+      width: 500px;
+      overflow: hidden;
     }
 
     input {
-        position: relative;
-        box-sizing: border-box;
-        margin: 33px 0;
-        padding: 16px 95px 17px 13px;
-        width: 100%;
-        border: 1px solid $white;
-        background: $white;
-        color: #888;
-        font-size: 1.6rem;
-        float: left;
-    }
+      position: relative;
+      float: left;
+      margin: 33px 0;
+      padding: 16px 95px 15px 18px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+      border: 1px solid #fff;
+      border-radius: 2px;
 
-    ::-webkit-input-placeholder {
-        font-style: italic;
-    }
-
-    textarea {
-        height: 150px;
-        resize: none;
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 1.5rem;
     }
 
     input:focus {
-        outline: none;
+      outline: none;
+    }
+
+    textarea {
+      height: 150px;
+      resize: none;
     }
 
     button {
-        position: relative;
-        margin: 39px 0 0 -91px;
-        padding: 13px 15px;
-        width: 85px;
-        border: none;
-        color: $dark-bg;
-        text-align: center;
-        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.1);
-        font-size: 1.2rem;
-        background: $yellow;
-        z-index: 999;
-        font-weight: 600;
+      position: relative;
+      z-index: 999;
+      margin: 39px 0 0 -91px;
+      padding: 13px 15px;
+      width: 85px;
+      background: #fdc524;
+      border: none;
+      border-radius: 2px;
+
+      color: #222;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-align: center;
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
     }
 
     button:hover {
-        background: $yellow;
-        cursor: pointer;
+      background: #fdcb39;
+      cursor: pointer;
     }
 
     button:active {
-        background: $dark-bg;
-        -webkit-box-shadow: inset 0 5px 0 0 #347fa5;
-        box-shadow: inset 0 2px 6px 3px rgba(100, 100, 100, 0.2);
+      background: #fcc011;
+      -webkit-box-shadow: inset 0 5px 0 0 #347fa5;
+      box-shadow: inset 0 2px 2px 0 rgba(100, 100, 100, 0.1);
     }
+  }
 
-/* Intro Section
+
+/* Intro
 ------------------------------------------------------------ */
-    .intro {
-        height: 600px;
-        background: #ddd;
+  .intro {
+    height: 500px;
+    border-top: 1px dotted #ededed;
+    overflow: hidden;
+
+    p {
+      margin: 100px 0;
+      width: 350px;
+
+      span {
+        color: #aaa;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.2rem;
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
 
-    .lefttext {
-        position: absolute;
-        width: 400px;
-        font-size: 1.6rem;
-        top: 200px;
+    .hmmm {
+      position: relative;
+      z-index: -1;
+      top: -425px;
+      left: 500px;
     }
+
+    .newsletter {
+      position: relative;
+      z-index: -1;
+      top: -275px;
+      left: 450px;
+    }
+  }
+
+  .first {
+    padding: 119px 0 0;
+  }
+
 
 /* Tag
 ------------------------------------------------------------ */
-    .tag {
-        height: 120px;
-        text-align: center;
-    
-        h2 {
-            font-size: 2rem;
-            line-height: 120px;
-        }
-    }
+  .tag {
+    height: 175px;
+    border-top: 1px dotted #ededed;
+    border-bottom: 1px dotted #ededed;
 
-/* Consumer Section
+    h2 {
+      margin: 0;
+
+      color: #222;
+      font-size: 2.5rem;
+      font-weight: 300;
+      letter-spacing: 0.1rem;
+      line-height: 175px;
+      text-transform: none;
+    }
+  }
+
+
+/* Consumer
 ------------------------------------------------------------ */
-    .consumer {
-        height: 600px;
-        background: #eee;
+  .consumer {
+    height: 400px;
+
+    article {
+      position: absolute;
+      left: 50%;
+      margin: 0 -375px;
+      width: 700px;
     }
 
-/* Retailer Section
+    .left {
+      position: absolute;
+      left: 0;
+      width: 360px;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      width: 360px;
+    }
+  }
+
+
+/* Retailer
 ------------------------------------------------------------ */
-    .tag {
-        height: 120px;
-        text-align: center;
-    
-        h2 {
-            font-size: 2rem;
-            line-height: 120px;
-        }
+  .retailer {
+    text-align: center;
+
+    img {
+      width: 900px;
     }
-
-    .retailer {
-        img {
-            position: relative;
-            margin: 0 auto;
-            display: block;
-            width: 960px;
-        }
-
-        .mba {
-            position: absolute;
-            margin: 0 auto;
-            width: $width;
-            height: 400px;
-            overflow: scroll;
-            z-index: 0;
-        }
-
-        a {
-            background: $yellow;
-        }
-
-        a:hover {
-            color: $dark-bg;
-        }
-    }
+  }
 
 
-/* Featured Section
+/* Referral
 ------------------------------------------------------------ */
-    .featured {
+  .referral {}
 
-        .featured-logos {
-            overflow: hidden;
-            margin: 0 auto;
-            width: 400px;
-        }
 
-        .featured-logos img:first-child {
-            position: relative;
-            float: left;
-            width: 150px;
-            margin: 0 100px 0 0;
-        }
+/* Featured
+------------------------------------------------------------ */
+  .featured {
+    height: 175px;
+    border-top: 1px dotted #ededed;
+    border-bottom: 1px dotted #ededed;
 
-        .featured-logos img:last-child {
-            position: relative;
-            float: right;
-            width: 150px;
-        }
+    text-align: center;
+
+    img {
+      width: 150px;
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+      filter: alpha(opacity=80);
+      opacity: 0.8;
+      vertical-align: top;
     }
+
+    .tc {
+      margin: 70px 25px 0;
+    }
+
+    .fw {
+      margin: 62px 25px 0;
+    }
+  }
+
+
+/* Team
+------------------------------------------------------------ */
+  .team {
+    height: 500px;
+
+    a, a:hover {
+      border: none;
+
+      color: #00a0d1;
+      font-weight: 400;
+    }
+
+    .team-member {
+      margin: 0 0 50px 50px;
+      float: left;
+      width: 250px;
+
+      font-size: 1.3rem;
+
+      img {
+        float: left;
+        width: 65px;
+        border-radius: 100%;
+      }
+
+      article {
+        float: left;
+        padding: 5px 25px;
+        width: 125px;
+
+        h3 {
+          font-weight: 700;
+        }
+
+        h4 {
+          margin: 5px 0 0;
+          color: #999;
+        }
+      }
+    }
+  }
+
 
 /* Footer
 ------------------------------------------------------------ */
-    footer {
-        height: 120px;
-        background: $dark-bg;
+  footer {
+    float: left;
+    width: 100%;
+    height: 250px;
+    background: #fff;
 
-        a {
-            float: left;
-            line-height: 120px;
-            color: $white;
-            margin: 0 50px 0 0;
-        }
+    text-align: center;
+
+    a, a:hover {
+      padding: 12px 19px 14px 20px;
+      border: none;
+      border-radius: 2px;
+      background: #57ad68;
+
+      color: #fff;
+      font-size: 1.3rem;
+      line-height: 100px;
     }
-
-
+  }
 }
 
