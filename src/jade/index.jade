@@ -1,14 +1,12 @@
 
 include mixins/asset-mixins
-include mixins/asset-mixins-angular
-
 
 mixin image-link(src)
   a(href=src): img.screenshot(src=src)
 
 
 !!!
-html(lang='en', ng-app='42.splash-page')
+html(lang='en')
 
   head
     title 42
@@ -21,14 +19,13 @@ html(lang='en', ng-app='42.splash-page')
       mixin css("default")
 
 
-  body(ng-controller="MainController")
+  body
 
     header
       .header-content
         img.logo-black(src="/assets/images/logo-black.png", alt="42 logo")
-        form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
+        form#email-form(name="form")
           input#signup-email(
-            ng-model="email",
             required,
             name="email",
             type="email",
@@ -36,10 +33,10 @@ html(lang='en', ng-app='42.splash-page')
           )
           button#signup-button(type="submit") Sign Up
 
-        .thanks(ng-show="signupDone")
-          h1 Thanks a bunch! We'll keep you posted :)
+        .thanks(style='display: none')
+          h1 Thank you for signing up. We'll keep you posted!
 
-    section.signup(ng-controller="SignupController")
+    section.signup
 
       img.logo(src="/assets/images/logo.png", alt="42 logo")
 
@@ -141,5 +138,3 @@ html(lang='en', ng-app='42.splash-page')
 
     block app
         mixin app-core("app")
-        mixin app-controller("main")
-        mixin app-controller("signup")
