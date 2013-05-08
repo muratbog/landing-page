@@ -3,6 +3,10 @@
 @import "compass/css3/user-interface";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800);
 
+html, body {
+  height: 100%;
+}
+
 
 html {
   width: 100%;
@@ -75,12 +79,14 @@ body {
 /* Splash
 ------------------------------------------------------------ */
   .splash {
-    height: 525px;
+    position: relative;
+    height: 100%;
     background: #111b1d;
 
     .logo {
       position: absolute;
-      margin: 150px -45px 0;
+      top: 150px;
+      margin-left: -45px;
       left: 50%;
       width: 90px;
     }
@@ -105,7 +111,6 @@ body {
   .signup {
     position: absolute;
     z-index: 1;
-    top: 525px;
     width: 100%;
     background: #eee;
 
@@ -123,15 +128,15 @@ body {
     }
 
     input {
+      @include border-radius(2px);
+      padding: 16px 95px 15px 18px;
       position: relative;
+      width: 100%;
       float: left;
       margin: 33px 0;
-      padding: 16px 95px 15px 18px;
-      width: 100%;
       background: #fff;
       box-sizing: border-box;
       border: 1px solid #fff;
-      border-radius: 2px;
 
       font-family: 'Open Sans', Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;

@@ -1,9 +1,12 @@
 # For now.
 SIGNUP_SERVICE_URI = 'http://signup.services.42debut.com'
 
-$ ->
+
+initEmailForm = ->
   $emailForm = $('#email-form')
-  $emailForm.submit ->
+
+  $emailForm.submit (event) ->
+
     email = $('#signup-email').val()
     deferred = $.post "#{SIGNUP_SERVICE_URI}/signups", {email}
 
@@ -17,3 +20,7 @@ $ ->
       console.error arguments
 
     return false
+
+
+$ ->
+  initEmailForm()

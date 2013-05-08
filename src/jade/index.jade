@@ -1,7 +1,10 @@
 include mixins/asset-mixins
+include mixins/meta-tag-mixins
+
 
 mixin image-link(src)
   a(href=src): img.screenshot(src=src)
+
 
 !!!
 html(lang='en')
@@ -12,25 +15,30 @@ html(lang='en')
     block meta
       //- include includes/mobile-meta-tags
       meta(charset="utf-8")
+      meta(name="google-site-verification", content="dnjj2jOQblrqtU6tz9FQ9MEWxIsf5mi96ZOyFULVsak")
+      mixin meta-author('42')
+      mixin meta-description('Retail experience, reinvented')
+
+    block js
+      mixin js-lib("jquery")
+      mixin js-lib("lodash")
+      //- Move this out of libs
+      mixin js-lib("scripts")
+
+    block app
+        mixin app-core("app")
 
     block css
       mixin css("default")
 
 
-  body(ng-controller="MainController")
+  body
 
-    //- Splash section
-    section.splash(ng-controller="SignupController")
-      img.logo(src="/assets/images/logo.png", alt="42 logo")
-      h2 Retail experience, reinvented
-
-    //- Sign up section
-    section.signup
+    header.signup
       img.logo-black(src="/assets/images/logo-black.png", alt="42 logo")
 
-      form#email-form(name="form", ng-submit="signup(email)", novalidate, ng-show="!signupDone")
+      form#email-form(name="emailForm", action=".", method="post")
         input#signup-email(
-          ng-model="email",
           required,
           name="email",
           type="email",
@@ -38,18 +46,27 @@ html(lang='en')
         )
         button#signup-button(type="submit") Sign Up
 
-      .thanks(style="display:none", ng-show="signupDone")
+      .thanks(style="display:none")
         h2 Thanks! We'll keep you posted :)
 
-    //- Intro section
+
+    section.splash
+      img.logo(src="/assets/images/logo.png", alt="42 logo")
+      h2 retail experience, reinvented
+
+
     section.intro.first
       article
         p
           span What is 42?
           br
           br
-          | We only focus on one thing: to give you a personalized retail experience. Today if you walked into store 10 times, few stores would have an idea of what you like as a customer. I only buy dress shirts, why am I getting emails about spring floral dresses?
+          | We only focus on one thing: to give you a personalized retail experience.
+          | Today if you walked into store 10 times, few stores would have an idea of
+          | what you like as a customer. I only buy dress shirts, why am I getting emails
+          | about spring floral dresses?
         img.hmmm(src="/assets/images/hmmm.jpg")
+
 
     section.intro
       article
@@ -57,46 +74,52 @@ html(lang='en')
           | Every customer cares about different things.
           br
           br
-          | Maybe you're someone who values being the first to know of new items, being notified of sales, or only getting suggestions for shirts that go well with your closet full of jeans. 
+          | Maybe you're someone who values being the first to know of new items,
+          | being notified of sales, or only getting suggestions for shirts that
+          | go well with your closet full of jeans. 
         img.newsletter(src="/assets/images/newsletter.png")
 
-    //- Tag section
+
     section.tag
       h2 It's our job to make the mass world of brick &amp; mortar more tailored to you. 
 
-    //- Consumer section
+
     section.consumer
       article
         h2 Brave New (Retail) World
-
-        //- img.dashboard(src="/assets/images/dashboard.png")
 
         p.left
           | Retail stores should function like eCommerce sites.
           br
           br
-          | Take everything you love about online retail and bring that offline. Now you have the best of both worlds: personal recommendations, and the touch and feel of the in-store experience. It's what your retail experience should be like. 
-
+          | Take everything you love about online retail and bring that offline.
+          | Now you have the best of both worlds: personal recommendations, and
+          | the touch and feel of the in-store experience. It's what your retail
+          | experience should be like. 
 
         p.right
           | Recommendations, just for you.
           br
           br
-          | We use a simple digital ID to identify your purchases. At checkout, the cashier will scan your ID barcode like any other item, and we'll send personalized recommendations that goes well with your purchases.
+          | We use a simple digital ID to identify your purchases. At checkout,
+          | the cashier will scan your ID barcode like any other item, and we'll
+          | send personalized recommendations that goes well with your purchases.
 
-    //- Retailer section
+
     section.retailer
       article.centered
         h2 Are you a retailer? 
 
         p
-          | 42's New enterprise platform is quick to set-up, and turns your most complex data into a simple, visual dashboard.  We work with some of the most innovative brands in retail.&nbsp;
+          | 42's New enterprise platform is quick to set-up, and turns your most
+          | complex data into a simple, visual dashboard.  We work with some of
+          | the most innovative brands in retail.&nbsp;
           a(href="mailto:team@42debut.com") Send us a note
           | , and we'll help you better understand your customers. 
 
       img(src="/assets/images/mba.png")
 
-    //- Referral section
+
     section.referral
       article
         h2 Know a retailer?
@@ -107,30 +130,27 @@ html(lang='en')
           br
           | We've included a brief bio for you.
 
-    //- Testimonials section
+
     section.testimonials
       article
         h2 What people say about 42
 
         blockquote
           p
-            | "The customization and personalization is great! This is what I expect in customer experience: when a brand values your
-            b  personal identity."
+            | "The customization and personalization is great! This is what I expect
+            | in customer experience: when a brand values your <b>personal identity</b>."
             br
             span &mdash; Tendi M
 
         blockquote
           p
-            | "This will be a
-            b  game changer
-            |  for brands wanting to reach their clients."
+            | "This will be a <b>game changer</b> for brands wanting to reach their clients."
             br
             span &mdash; Ekaterina D
 
         blockquote
           p
-            | "I love that it's personalized and not generic. It will
-            b  bring me into stores
+            | "I love that it's personalized and not generic. It will <b>bring me into stores</b>
             |  and make me feel closer to the brand."
             br
             span &mdash; Phoebe Y
@@ -141,80 +161,34 @@ html(lang='en')
             br
             span &mdash; Uri M
 
-    //- Featured section
+
     section.featured
       .featured-logos
         img.tc(src="/assets/images/tc-logo.png")
         img.fw(src="/assets/images/fashionweek.png")
 
-    //- Team section
+
     section.team
+
+      mixin team-member(name, title, twitterHandle, img)
+        .team-member
+          img(src=img, alt=name)
+          article
+            h3= name
+            h4= title
+            br
+            br
+            a(href="//twitter.com/#{twitterHandle}") @#{twitterHandle}
+
       article
         h2 The Team
 
-        div.team-member
-          div.img-wrapper
-            mixin image-link("/assets/images/cathy.gif")
+        mixin team-member('Cathy Han',        'CEO',       'cathyxhan',    '/assets/images/team/cathy.gif')
+        mixin team-member('Lucas Lemanowicz', 'Developer', 'Lucas3677',    '/assets/images/team/lucas.gif')
+        mixin team-member('Nicolas Porter',   'CTO',       'surjikal',     '/assets/images/team/nicolas.gif')
+        mixin team-member('Sarah Hum',        'Designer',  'sarahhum',     '/assets/images/team/sarah.gif')
+        mixin team-member('Wayne Spiegel',    'Designer',  'waynespiegel', '/assets/images/team/wayne.gif')
 
-          article
-            h3 Cathy Han
-            h4 CEO
-            br
-            br
-            <a href="http://www.twitter.com/cathyxhan" target="_blank">@cathyxhan</a>
-
-        div.team-member
-          mixin image-link("/assets/images/lucas.gif")
-
-          article
-            h3 Lucas Lemanowicz
-            h4 Developer
-            br
-            br
-            <a href="http://www.twitter.com/Lucas3677" target="_blank">@Lucas3677</a>
-
-        div.team-member
-          mixin image-link("/assets/images/nicolas.gif")
-
-          article
-            h3 Nicolas Porter
-            h4 CTO
-            br
-            br
-            <a href="http://github.nicolasporter.ca" target="_blank">@surjikal</a>
-
-        div.team-member
-          mixin image-link("/assets/images/sarah.gif")
-
-          article
-            h3 Sarah Hum
-            h4 Designer
-            br
-            br
-            <a href="http://www.twitter.com/sarahhum" target="_blank">@sarahhum</a>
-
-        div.team-member
-          mixin image-link("/assets/images/wayne.gif")
-
-          article
-            h3 Wayne Spiegel
-            h4 Designer
-            br
-            br
-            <a href="http://www.twitter.com/waynespiegel" target="_blank">@waynespiegel</a>
-
-    //- Footer
     footer
-      a(href="mailto:team@42debut.com") Are you a retailer? Contact Us!
-
-    //- Scripts
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-
-    block js-libs
-      mixin js-lib("scripts")
-      //- mixin js-lib("angular")
-      mixin js-lib("lodash")
-      mixin js-lib("zepto")
-
-    block app
-        mixin app-core("app")
+      a(href="mailto:team@42debut.com")
+        | Are you a retailer? Contact Us!
