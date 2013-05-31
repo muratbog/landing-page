@@ -2,10 +2,6 @@ include mixins/asset-mixins
 include mixins/meta-tag-mixins
 
 
-mixin image-link(src)
-  a(href=src): img.screenshot(src=src)
-
-
 !!!
 html(lang='en')
 
@@ -15,7 +11,10 @@ html(lang='en')
     block meta
       //- include includes/mobile-meta-tags
       meta(charset="utf-8")
+
+      //- Do not remove this!
       meta(name="google-site-verification", content="dnjj2jOQblrqtU6tz9FQ9MEWxIsf5mi96ZOyFULVsak")
+
       mixin meta-author('42')
       mixin meta-description('Retail experience, reinvented')
 
@@ -57,10 +56,9 @@ html(lang='en')
 
     section.intro.first
       article
+        h2
+          | What is 42?
         p
-          span What is 42?
-          br
-          br
           | We only focus on one thing: to give you a personalized retail experience.
           | Today if you walked into store 10 times, few stores would have an idea of
           | what you like as a customer. I only buy dress shirts, why am I getting emails
@@ -88,33 +86,32 @@ html(lang='en')
       article
         h2 Brave New (Retail) World
 
-        p.left
-          | Retail stores should function like eCommerce sites.
-          br
-          br
-          | Take everything you love about online retail and bring that offline.
-          | Now you have the best of both worlds: personal recommendations, and
-          | the touch and feel of the in-store experience. It's what your retail
-          | experience should be like. 
+        .left
+          header
+            | Retail stores should function like eCommerce sites.
+          p
+            | Take everything you love about online retail and bring that offline.
+            | Now you have the best of both worlds: personal recommendations, and
+            | the touch and feel of the in-store experience. It's what your retail
+            | experience should be like. 
 
-        p.right
-          | Recommendations, just for you.
-          br
-          br
-          | We use a simple digital ID to identify your purchases. At checkout,
-          | the cashier will scan your ID barcode like any other item, and we'll
-          | send personalized recommendations that goes well with your purchases.
+        .right
+          header
+            | Recommendations, just for you.
+          p
+            | We use a simple digital ID to identify your purchases. At checkout,
+            | the cashier will scan your ID barcode like any other item, and we'll
+            | send personalized recommendations that goes well with your purchases.
 
 
     section.retailer
       article.centered
-        h2 Are you a retailer? 
-
+        h2
+          | Are you a retailer? 
         p
           | 42's New enterprise platform is quick to set-up, and turns your most
           | complex data into a simple, visual dashboard.  We work with some of
-          | the most innovative brands in retail.&nbsp;
-          a(href="mailto:team@42debut.com") Send us a note
+          | the most innovative brands in retail. <a href="mailto:team@42debut.com">Send us a note</a>
           | , and we'll help you better understand your customers. 
 
       img(src="/assets/images/mba.png")
@@ -125,8 +122,8 @@ html(lang='en')
         h2 Know a retailer?
 
         p.centered
-          | If you know a brand that would benefit from 42, help us&nbsp;
-          a(href="mailto:team@42debut.com") spread the word!
+          | If you know a brand that would benefit from 42, help us
+          |  <a href="mailto:team@42debut.com">spread the word</a> !
           br
           | We've included a brief bio for you.
 
@@ -137,40 +134,44 @@ html(lang='en')
 
         blockquote
           p
-            | "The customization and personalization is great! This is what I expect
-            | in customer experience: when a brand values your <b>personal identity</b>."
-            br
-            span &mdash; Tendi M
+            | The customization and personalization is great! This is what I expect
+            | in customer experience: when a brand values your <b>personal identity</b>.
+          footer
+            | Tendi M
 
         blockquote
           p
-            | "This will be a <b>game changer</b> for brands wanting to reach their clients."
-            br
-            span &mdash; Ekaterina D
+            | This will be a <b>game changer</b> for brands wanting to reach their clients.
+          footer
+            | Ekaterina D
 
         blockquote
           p
-            | "I love that it's personalized and not generic. It will <b>bring me into stores</b>
-            |  and make me feel closer to the brand."
-            br
-            span &mdash; Phoebe Y
+            | I love that it's personalized and not generic. It will <b>bring me into stores</b>
+            |  and make me feel closer to the brand.
+          footer
+            | Phoebe Y
 
         blockquote
           p
-            | "One of the most <b>disruptive</b> things on the front-end that we've seen in a while."
-            br
-            span &mdash; Uri M
+            | One of the most <b>disruptive</b> things on the front-end that we've seen in a while.
+          footer
+            | Uri M
 
 
     section.featured
       .featured-logos
-        img.tc(src="/assets/images/tc-logo.png")
-        img.fw(src="/assets/images/fashionweek.png")
+
+        a.featured-logo(href="http://techcrunch.com/2013/04/29/42-is-the-answer-to-everything-in-personalized-analytics-for-retail/")
+          img.tc(src="/assets/images/tc-logo.png", alt="TechCrunch Disrupt NYC 2013 Article")
+
+        a.featured-logo(href="http://hack.decodedfashion.com/")
+          img.fw(src="/assets/images/fashionweek.png", alt="Decoded Fashion Hackathon")
 
 
     section.team
 
-      mixin team-member(name, title, twitterHandle, img)
+      mixin team-member(name, title, twitterHandle, img, github)
         .team-member
           img(src=img, alt=name)
           article
@@ -178,14 +179,17 @@ html(lang='en')
             h4= title
             br
             br
-            a(href="//twitter.com/#{twitterHandle}") @#{twitterHandle}
+            if github
+              a(href="//github.com/#{twitterHandle}") @#{twitterHandle}
+            else
+              a(href="//twitter.com/#{twitterHandle}") @#{twitterHandle}
 
       article
         h2 The Team
 
         mixin team-member('Cathy Han',        'CEO',       'cathyxhan',    '/assets/images/team/cathy.gif')
         mixin team-member('Lucas Lemanowicz', 'Developer', 'Lucas3677',    '/assets/images/team/lucas.gif')
-        mixin team-member('Nicolas Porter',   'CTO',       'surjikal',     '/assets/images/team/nicolas.gif')
+        mixin team-member('Nicolas Porter',   'CTO',       'surjikal',     '/assets/images/team/nicolas.gif', true)
         mixin team-member('Sarah Hum',        'Designer',  'sarahhum',     '/assets/images/team/sarah.gif')
         mixin team-member('Wayne Spiegel',    'Designer',  'waynespiegel', '/assets/images/team/wayne.gif')
 

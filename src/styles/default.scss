@@ -25,13 +25,19 @@ body {
 
 /* General layout
 ------------------------------------------------------------ */
-  a, a:hover {
-    padding: 0 0 1px;
-    border-bottom: 1px dotted #aaa;
 
-    color: #f7b802;
-    font-weight: 700;
+  a {
     text-decoration: none;
+    font-weight: 700;
+  }
+
+  p > a {
+    padding: 0 0 1px;
+    color: #f7b802;
+
+    &:hover {
+      border-bottom: 1px dotted #f7b802;
+    }
   }
 
   article {
@@ -51,10 +57,14 @@ body {
     text-transform: uppercase;
   }
 
-  p {
+  p, blockquote, article header {
     font-size: 1.3rem;
     letter-spacing: 0.1rem;
     line-height: 2.5rem;
+  }
+
+  article header {
+    margin-bottom: 2rem;
   }
 
   .centered {
@@ -64,14 +74,24 @@ body {
     text-align: center;
   }
 
+  b {
+    font-weight: 700;
+  }
+
   blockquote {
+    font-size: 1.3rem;
     padding: 0 20px 25px;
     width: 400px;
     display: inline-block;
     vertical-align: top;
 
-    span {
+    footer {
       color: #999;
+      margin-top: 5px;
+
+      &:before {
+        content: '— ';
+      }
     }
   }
 
@@ -154,7 +174,6 @@ body {
 
     button {
       position: relative;
-      z-index: 999;
       margin: 39px 0 0 -91px;
       padding: 13px 15px;
       width: 85px;
@@ -166,18 +185,16 @@ body {
       font-size: 1.2rem;
       font-weight: 600;
       text-align: center;
-      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-    }
 
-    button:hover {
-      background: #fdcb39;
-      cursor: pointer;
-    }
+      &:hover {
+        background: lighten(#fdc524, 5%);
+        cursor: pointer;
+      }
 
-    button:active {
-      background: #fcc011;
-      -webkit-box-shadow: inset 0 5px 0 0 #347fa5;
-      box-shadow: inset 0 2px 2px 0 rgba(100, 100, 100, 0.1);
+      &:active {
+        background: darken(#fdc524, 5%);
+        @include box-shadow(inset 0 2px 2px 0 rgba(100, 100, 100, 0.1));
+      }
     }
   }
 
@@ -189,18 +206,19 @@ body {
     border-top: 1px dotted #ededed;
     overflow: hidden;
 
+    h2 {
+      color: #aaa;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 0.2rem;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
     p {
+      position: relative;
       margin: 100px 0;
       width: 350px;
-
-      span {
-        color: #aaa;
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: 0.2rem;
-        text-align: center;
-        text-transform: uppercase;
-      }
     }
 
     .hmmm {
@@ -219,7 +237,11 @@ body {
   }
 
   .first {
-    padding: 119px 0 0;
+    padding: 119px 0 0; // this should be illegal
+
+    p {
+      margin-top: 0;
+    }
   }
 
 
@@ -291,14 +313,21 @@ body {
     height: 175px;
     border-top: 1px dotted #ededed;
     border-bottom: 1px dotted #ededed;
-
     text-align: center;
 
+    .featured-logo {
+      display: inline-block;
+      height: 100%;
+      @include opacity(0.6);
+      @include transition(opacity 0.3s);
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
+
     img {
-      width: 150px;
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-      filter: alpha(opacity=80);
-      opacity: 0.8;
+      width: 200px;
       vertical-align: top;
     }
 
@@ -357,7 +386,7 @@ body {
 
 /* Footer
 ------------------------------------------------------------ */
-  footer {
+  & > footer {
     float: left;
     width: 100%;
     height: 250px;
@@ -374,6 +403,16 @@ body {
       color: #fff;
       font-size: 1.3rem;
       line-height: 100px;
+
+      &:hover {
+        background: lighten(#57ad68, 5%);
+        cursor: pointer;
+      }
+
+      &:active {
+        background: darken(#57ad68, 5%);
+        @include box-shadow(inset 0 2px 2px 0 rgba(100, 100, 100, 0.1));
+      }
     }
   }
 }
