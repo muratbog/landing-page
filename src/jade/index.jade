@@ -171,7 +171,7 @@ html(lang='en')
 
     section.team
 
-      mixin team-member(name, title, twitterHandle, img, github)
+      mixin team-member(img, name, title, twitterHandle, github)
         .team-member
           img(src=img, alt=name)
           article
@@ -181,17 +181,18 @@ html(lang='en')
             br
             if github
               a(href="//github.com/#{twitterHandle}") @#{twitterHandle}
-            else
+            else if twitterHandle
               a(href="//twitter.com/#{twitterHandle}") @#{twitterHandle}
 
       article
         h2 The Team
 
-        mixin team-member('Cathy Han',        'CEO',       'cathyxhan',    '/assets/images/team/cathy.gif')
-        mixin team-member('Lucas Lemanowicz', 'Developer', 'Lucas3677',    '/assets/images/team/lucas.gif')
-        mixin team-member('Nicolas Porter',   'CTO',       'surjikal',     '/assets/images/team/nicolas.gif', true)
-        mixin team-member('Sarah Hum',        'Designer',  'sarahhum',     '/assets/images/team/sarah.gif')
-        mixin team-member('Wayne Spiegel',    'Designer',  'waynespiegel', '/assets/images/team/wayne.gif')
+        mixin team-member('/assets/images/team/cathy.gif',   'Cathy Han',        'CEO',       'cathyxhan')
+        mixin team-member('/assets/images/team/lucas.gif',   'Lucas Lemanowicz', 'Developer', 'Lucas3677')
+        mixin team-member('/assets/images/team/nicolas.gif', 'Nicolas Porter',   'CTO',       'surjikal', true)
+        mixin team-member('/assets/images/team/nicky.gif',   'Nicole Vulej',     'PR')
+        mixin team-member('/assets/images/team/sarah.gif',   'Sarah Hum',        'Designer',  'sarahhum')
+        mixin team-member('/assets/images/team/wayne.gif',   'Wayne Spiegel',    'Designer',  'waynespiegel')
 
     footer
       a(href="mailto:team@42debut.com")
