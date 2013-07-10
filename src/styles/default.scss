@@ -318,12 +318,12 @@ body {
     .featured-logo {
       display: inline-block;
       height: 100%;
-      @include opacity(0.6);
+      // @include opacity(0.6);
       @include transition(opacity 0.3s);
 
-      &:hover {
-        @include opacity(1);
-      }
+      // &:hover {
+      //   @include opacity(1);
+      // }
     }
 
     img {

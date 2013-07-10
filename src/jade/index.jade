@@ -18,6 +18,9 @@ html(lang='en')
       mixin meta-author('42')
       mixin meta-description('Retail experience, reinvented')
 
+    block css
+      mixin css("default")
+
     block js
       mixin js-lib("jquery")
       mixin js-lib("lodash")
@@ -26,9 +29,6 @@ html(lang='en')
 
     block app
         mixin app-core("app")
-
-    block css
-      mixin css("default")
 
 
   body
@@ -74,7 +74,7 @@ html(lang='en')
           br
           | Maybe you're someone who values being the first to know of new items,
           | being notified of sales, or only getting suggestions for shirts that
-          | go well with your closet full of jeans. 
+          | go well with your closet full of jeans.
         img.newsletter(src="/assets/images/newsletter.png")
 
 
@@ -160,12 +160,13 @@ html(lang='en')
 
 
     section.featured
-      .featured-logos
 
-        a.featured-logo(href="http://techcrunch.com/2013/04/29/42-is-the-answer-to-everything-in-personalized-analytics-for-retail/")
+        //- a.featured-logo(href="http://techcrunch.com/2013/04/29/42-is-the-answer-to-everything-in-personalized-analytics-for-retail/")
+        .featured-logo
           img.tc(src="/assets/images/tc-logo.png", alt="TechCrunch Disrupt NYC 2013 Article")
 
-        a.featured-logo(href="http://hack.decodedfashion.com/")
+        //- a.featured-logo(href="http://hack.decodedfashion.com/")
+        .featured-logo
           img.fw(src="/assets/images/fashionweek.png", alt="Decoded Fashion Hackathon")
 
 
